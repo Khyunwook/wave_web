@@ -1,0 +1,13 @@
+<ion-navbar primary *navbar>
+  <ion-title>차량번호 : {{mycarNumber}}</ion-title>
+  <ion-buttons start>
+    <button (click)="setLocation()"><ion-icon name="pin"></ion-icon></button>
+  </ion-buttons>
+  <ion-buttons end>
+    <button (click)="takeMeHome()"><ion-icon name="walk"></ion-icon></button>
+  </ion-buttons>
+</ion-navbar>
+<ion-content>
+
+    <div #map id="map"></div>
+</ion-content>

@@ -1,0 +1,17 @@
+{
+  "name": "ionic2wave-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "khwbori",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "^1.4.6",
+    "express" : "3.2.x",
+    "xmlhttprequest": "^1.8.0",
+    "xmlhttprequest-ssl": "^1.5.2"
+  }
+}

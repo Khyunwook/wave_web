@@ -1,0 +1,67 @@
+<!--
+  Generated template for the WavesimulPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar primary *navbar>
+  <ion-title>Connected Car Service</ion-title>
+  <ion-buttons *ngIf = "onoffinit" start>
+    <button (click)="playWave()"><ion-icon name="logo-rss"></ion-icon></button>
+  </ion-buttons>
+  <ion-buttons end>
+    <button (click)="initWave()"><ion-icon name="git-branch"></ion-icon></button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content padding class="wavesimul">
+  <ion-card *ngIf= "selectedCar">
+    <ion-card-header class="followcar">
+      <center>{{selectedCar.scarnum}} 차량을 따라갑니다.</center>
+    </ion-card-header>
+  </ion-card>
+  <ion-card (click)="sendCCH()">
+    <center>
+    <img *ngIf="oncch" src="image/cch.gif"/>
+    <ion-card-header>
+      CCH 구간
+    </ion-card-header>
+    <ion-card-content>
+      {{nearCarslen}}개의 차량과 다음 경로가 일치합니다.
+    </ion-card-content>
+    </center>
+  </ion-card>
+
+  <ion-card (click)="sendSCH()">
+    <center>
+    <img *ngIf="onsch" src="image/sch.gif"/>
+    <ion-card-header>
+      SCH 구간
+    </ion-card-header>
+
+    <ion-card-content *ngIf!="isitschcar">
+      {{schcar}} 차량과 정보를 주고받고 있습니다.
+    </ion-card-content>
+
+    <ion-card-content *ngIf="isitschcar">
+      SCH 통신을 할 대기 차량이 없습니다.
+    </ion-card-content>
+    </center>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <center>Selection list</center>
+    </ion-card-header>
+  <ion-list>
+    <ion-item *ngFor="let printlist of printlists" (click)="selectConnectedCar(printlist)">
+      <ion-icon name="ios-car" item-left></ion-icon>
+      <center>
+      <h4>{{printlist.scarnum}}</h4>
+      <p> {{printlist.sch_packet}}구간이 일치합니다.</p>
+      </center>
+    </ion-item>
+  </ion-list>
+</ion-card>
+
+</ion-content>
